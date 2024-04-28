@@ -1,15 +1,14 @@
 FROM jupyter/pyspark-notebook:latest
 
-ENV PYTHONUNBUFFERED 1
+# add needed packages
+# RUN apt-get update && apt-get install 
 
-# [Optional] If your requirements rarely change, uncomment this section to add them to the image.
-COPY requirements.txt /tmp/pip-tmp/
-RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt
-#    && rm -rf /tmp/pip-tmp
+# Install Python requirements
+COPY requirements.txt /home/jovyan/requirements.txt 
+RUN pip3 install -r /home/jovyan/requirements.txt
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+#COPY jupyter_lab_config.json /home/jovyan/
+
 
 
 
