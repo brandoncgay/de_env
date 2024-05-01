@@ -153,6 +153,7 @@ docker-compose.override.yml
 # DB files
 *.db
 /postgres-data
+/data
 
 # Terraform files
 **/.terraform*
